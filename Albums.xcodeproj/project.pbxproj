@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E3EAD67819FEE30400E9555F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EAD67719FEE30400E9555F /* AppDelegate.swift */; };
-		E3EAD67A19FEE30400E9555F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EAD67919FEE30400E9555F /* ViewController.swift */; };
 		E3EAD67D19FEE30400E9555F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3EAD67B19FEE30400E9555F /* Main.storyboard */; };
 		E3EAD67F19FEE30400E9555F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3EAD67E19FEE30400E9555F /* Images.xcassets */; };
 		E3EAD68219FEE30400E9555F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3EAD68019FEE30400E9555F /* LaunchScreen.xib */; };
 		E3EAD68E19FEE30400E9555F /* AlbumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EAD68D19FEE30400E9555F /* AlbumsTests.swift */; };
+		E3EAD69819FEFFAD00E9555F /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EAD69719FEFFAD00E9555F /* AlbumsViewController.swift */; };
+		E3EAD69A19FF037B00E9555F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EAD69919FF037B00E9555F /* AssetsLibrary.framework */; };
+		E3EAD69C19FF054700E9555F /* AssetsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EAD69B19FF054700E9555F /* AssetsLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		E3EAD67219FEE30400E9555F /* Albums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Albums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3EAD67619FEE30400E9555F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3EAD67719FEE30400E9555F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E3EAD67919FEE30400E9555F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E3EAD67C19FEE30400E9555F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3EAD67E19FEE30400E9555F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E3EAD68119FEE30400E9555F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E3EAD68719FEE30400E9555F /* AlbumsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3EAD68C19FEE30400E9555F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3EAD68D19FEE30400E9555F /* AlbumsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTests.swift; sourceTree = "<group>"; };
+		E3EAD69719FEFFAD00E9555F /* AlbumsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		E3EAD69919FF037B00E9555F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E3EAD69B19FF054700E9555F /* AssetsLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3EAD69A19FF037B00E9555F /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		E3EAD66919FEE30400E9555F = {
 			isa = PBXGroup;
 			children = (
+				E3EAD69919FF037B00E9555F /* AssetsLibrary.framework */,
 				E3EAD67419FEE30400E9555F /* Albums */,
 				E3EAD68A19FEE30400E9555F /* AlbumsTests */,
 				E3EAD67319FEE30400E9555F /* Products */,
@@ -78,11 +84,12 @@
 			isa = PBXGroup;
 			children = (
 				E3EAD67719FEE30400E9555F /* AppDelegate.swift */,
-				E3EAD67919FEE30400E9555F /* ViewController.swift */,
 				E3EAD67B19FEE30400E9555F /* Main.storyboard */,
 				E3EAD67E19FEE30400E9555F /* Images.xcassets */,
 				E3EAD68019FEE30400E9555F /* LaunchScreen.xib */,
 				E3EAD67519FEE30400E9555F /* Supporting Files */,
+				E3EAD69719FEFFAD00E9555F /* AlbumsViewController.swift */,
+				E3EAD69B19FF054700E9555F /* AssetsLibrary.swift */,
 			);
 			path = Albums;
 			sourceTree = "<group>";
@@ -212,7 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3EAD67A19FEE30400E9555F /* ViewController.swift in Sources */,
+				E3EAD69C19FF054700E9555F /* AssetsLibrary.swift in Sources */,
+				E3EAD69819FEFFAD00E9555F /* AlbumsViewController.swift in Sources */,
 				E3EAD67819FEE30400E9555F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +415,7 @@
 				E3EAD69319FEE30400E9555F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3EAD69419FEE30400E9555F /* Build configuration list for PBXNativeTarget "AlbumsTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				E3EAD69619FEE30400E9555F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
