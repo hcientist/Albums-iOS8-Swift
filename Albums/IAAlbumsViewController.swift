@@ -1,35 +1,55 @@
 //
-//  AlbumsViewController.swift
+//  IAAlbumsViewController.swift
 //  Albums
 //
-//  Created by Michael Stewart on 10/27/14.
+//  Created by Michael Stewart on 10/28/14.
 //  Copyright (c) 2014 iOS in Action. All rights reserved.
 //
 
 import UIKit
 import AssetsLibrary
 
+class IAAlbumsViewController: UITableViewController {
 
-class AlbumsViewController: UITableViewController {
-    
-//    var albums: NSMutableArray
     var albums:[ALAssetsGroup] = []
-
+    
+    func loadAlbums() {
+        var library = IAAssetsLibrary.defaultInstance
+        library.enumerateGroupsWithTypes(ALAssetsGroupAll, usingBlock: { (group, stop) -> Void in
+//            println("in enumeration")
+            if (group != nil) {
+//                println("group not nil")
+//                println(group.valueForProperty(ALAssetsGroupPropertyName))
+                self.albums.append(group)
+            } else {
+//                println("group is nil")
+                dispatch_async(dispatch_get_main_queue(), {
+//                    println("reload data")
+                    self.tableView.reloadData()
+                
+                })
+            }
+        }) { (error) -> Void in
+            println("problem loading albums: \(error)")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        println("view did load")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            
+            self.loadAlbums()
+            
+        })
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-//        self.albums = ALAssetsGroup()
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            
-            self.loadAlbums()
-            
-        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,53 +62,49 @@ class AlbumsViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+//        println("numberOfSectionsInTableView")
+        return 1 //this was 0, a BAD default
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
+//        println("numberOfRowsInSection")
         return self.albums.count
     }
-    
-    func loadAlbums() {
-        var library = AssetsLibrary.singelton
-        library.enumerateGroupsWithTypes(ALAssetsGroupAll,
-            usingBlock: { (group, stop) -> Void in
-                if (group != nil) {
-                    self.albums.append(group)
-                } else {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                        
-                        self.tableView.reloadData()
-                        
-                    })
-                }
-            }) { (error) -> Void in
-                println("problem loading albums: \(error)")
-        }
-    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var CellIdentifier = "Cell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as UITableViewCell?
-
-        if (cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
-        }
+//        println("GOT IN HERE")
+        var CellIdentifier = "albumCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as IAAlbumTableViewCell?
         
-        var group = self.albums[indexPath.row] as ALAssetsGroup
-        cell?.textLabel.text = group.valueForProperty(ALAssetsGroupPropertyName) as String
+        cell?.setFromAlbum(self.albums[indexPath.row])
+        
+//        if (cell == nil) {
+//            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
+//        }
+        
+//        var group = self.albums[indexPath.row]
+//        cell!.textLabel.text = group.valueForProperty(ALAssetsGroupPropertyName) as String
+        
+//        println("about to cheese")
+//        cell!.textLabel.text = "cheese"
+//        println("cheese")
+//        self.tableView.reloadData()
+//        println("current cell textlabel text: \(cell!.textLabel.text)")
 
-
+        // Configure the cell...
 
         return cell!
     }
     
-    required init(coder aDecoder: NSCoder) {
-        self.albums = []
-        super.init(coder: aDecoder)
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as IAAlbumTableViewCell
+        println("selected \(cell.albumTitleLabel.text)")
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
 
     /*
     // Override to support conditional editing of the table view.

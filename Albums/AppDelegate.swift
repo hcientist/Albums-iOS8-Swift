@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Albums
 //
-//  Created by Michael Stewart on 10/27/14.
+//  Created by Michael Stewart on 10/28/14.
 //  Copyright (c) 2014 iOS in Action. All rights reserved.
 //
 

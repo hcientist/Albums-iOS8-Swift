@@ -1,71 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Alj-tG-q6z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CRg-Gz-ltL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Albums-->
-        <scene sceneID="it3-og-a7U">
+        <scene sceneID="zPx-V7-lbh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XYB-Nc-dlN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Albums" id="ghE-Jp-eJZ" customClass="AlbumsViewController" customModule="Albums" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="N74-0D-agW"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rk9-qF-Yq5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kq7-Zg-7IC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="feo-VG-Xxb"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1065" y="-336"/>
-        </scene>
-        <!--Albums View Controller-->
-        <scene sceneID="hgj-Qx-eEk">
-            <objects>
-                <tableViewController id="Lfh-Zk-U8C" customClass="AlbumsViewController" customModule="Albums" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mfn-Z0-gbo">
+                <tableViewController title="Albums" id="MDO-iD-IMb" customClass="IAAlbumsViewController" customModule="Albums" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="uX5-Fu-LxE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YJu-Ow-rsH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="50" id="96I-F3-I4k" customClass="IAAlbumTableViewCell" customModule="Albums" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YJu-Ow-rsH" id="j56-0Z-bqB">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="96I-F3-I4k" id="xHe-zX-jfg">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="koU-oh-OHW">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Df2-q2-OG8"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utn-WM-qce">
+                                            <rect key="frame" x="58" y="14" width="42" height="21"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="utn-WM-qce" secondAttribute="centerY" id="2IT-Lb-1Yv"/>
+                                        <constraint firstItem="koU-oh-OHW" firstAttribute="leading" secondItem="xHe-zX-jfg" secondAttribute="leadingMargin" constant="-8" id="6Gf-wL-kEH"/>
+                                        <constraint firstItem="utn-WM-qce" firstAttribute="leading" secondItem="koU-oh-OHW" secondAttribute="trailing" constant="8" id="MLF-UO-ULq"/>
+                                        <constraint firstItem="koU-oh-OHW" firstAttribute="top" secondItem="xHe-zX-jfg" secondAttribute="top" id="ZFI-XE-atB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="koU-oh-OHW" secondAttribute="bottom" constant="-8.5" id="bIx-cx-iwr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="albumImageView" destination="koU-oh-OHW" id="PZL-5O-H6a"/>
+                                    <outlet property="albumTitleLabel" destination="utn-WM-qce" id="cBP-7d-KcI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Lfh-Zk-U8C" id="htq-Py-1hv"/>
-                            <outlet property="delegate" destination="Lfh-Zk-U8C" id="H3I-qC-iWy"/>
+                            <outlet property="dataSource" destination="MDO-iD-IMb" id="xdF-vz-z6n"/>
+                            <outlet property="delegate" destination="MDO-iD-IMb" id="QiM-Bp-SmF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="ZE5-wr-JGk"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zhU-1s-6fY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="boR-Vq-Cmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992" y="356"/>
+            <point key="canvasLocation" x="1039" y="-67"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="gBc-GX-m9F">
+        <scene sceneID="8EW-rD-YRU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Alj-tG-q6z" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CRg-Gz-ltL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pSt-Sw-yRg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ImO-tl-ohg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Lfh-Zk-U8C" kind="show" id="fqr-eG-01S"/>
+                        <segue destination="MDO-iD-IMb" kind="relationship" relationship="rootViewController" id="xkQ-kY-e51"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LTz-T5-lni" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7lS-ag-Yl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="348"/>
+            <point key="canvasLocation" x="227" y="371"/>
         </scene>
     </scenes>
 </document>
